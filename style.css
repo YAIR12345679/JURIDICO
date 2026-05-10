@@ -1,0 +1,248 @@
+:root {
+    --primary-dark: #1b1a1a;
+    --secondary-dark: #282727;
+    --accent-gold: #c2a35d;
+    --accent-gold-light: #e0cc97;
+    --text-light: #fdfdfd;
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+body {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, .navbar-brand {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
+}
+
+/* --- LOGO --- */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none !important;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* --- NAVEGACIÓN --- */
+.navbar {
+    padding: 15px 0;
+    transition: var(--transition);
+    border-bottom: 1px solid rgba(194, 163, 93, 0.1);
+    background: rgba(24, 24, 24, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1050;
+}
+
+.nav-link {
+    color: var(--text-light) !important;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    margin: 0 8px;
+    letter-spacing: 1px;
+}
+
+.nav-link:hover { color: var(--accent-gold) !important; }
+
+/* --- CARRUSEL HERO --- */
+.hero-carousel .carousel-item {
+    height: 100vh;
+    min-height: 600px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 80px; /* Ajuste para no chocar con navbar */
+}
+
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.85));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- SECCIONES --- */
+.section-padding { padding: 80px 0; }
+.bg-soft { background-color: var(--secondary-dark); }
+.gold-line { width: 60px; height: 2px; background: var(--accent-gold); margin: 20px auto; }
+.gold-line.m-0 { margin-left: 0 !important; }
+
+/* --- VENTANAS (CARDS) Y EFECTOS --- */
+.practice-card {
+    background: #1a1a1a;
+    border: 1px solid rgba(194, 163, 93, 0.1);
+    padding: 40px;
+    height: 100%;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.practice-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-gold);
+    transform: scaleX(0);
+    transition: var(--transition);
+    transform-origin: left;
+}
+
+.practice-card:hover {
+    background: #222;
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+.practice-card:hover::before {
+    transform: scaleX(1);
+}
+
+.practice-card i { color: var(--accent-gold); font-size: 2rem; margin-bottom: 25px; transition: 0.3s; }
+.practice-card:hover i { transform: scale(1.1); color: var(--accent-gold-light); }
+
+/* --- STAFF SECTION MEJORADO (PROPORCIONAL) --- */
+.staff-card {
+    background: #1a1a1a;
+    border: 1px solid rgba(194, 163, 93, 0.1);
+    transition: var(--transition);
+    text-align: center;
+    padding-bottom: 25px;
+    height: 100%;
+    max-width: 380px; 
+    margin: 0 auto;
+}
+.staff-img-container {
+    width: 100%;
+    height: 280px; 
+    overflow: hidden;
+    margin-bottom: 20px;
+    background: #222;
+}
+.staff-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: top; 
+    transition: var(--transition);
+}
+.staff-card:hover .staff-img {
+    transform: scale(1.05);
+}
+.staff-info { padding: 0 15px; }
+.staff-name { color: var(--accent-gold); font-family: 'Cinzel', serif; font-size: 1rem; margin-bottom: 5px; text-transform: uppercase; }
+.staff-role { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; display: block; opacity: 0.7; color: var(--accent-gold-light); }
+.staff-desc { font-size: 0.85rem; line-height: 1.4; opacity: 0.8; }
+
+/* --- WHATSAPP ELEGANTE MEJORADO --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 32px;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: var(--transition);
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+.whatsapp-float::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #25d366;
+    z-index: -1;
+    animation: pulse-whatsapp 2s infinite;
+}
+
+@keyframes pulse-whatsapp {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #1ebc5a;
+    color: #fff;
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+}
+
+/* --- BOTONES --- */
+.btn-premium {
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    padding: 14px 30px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-block;
+    background: transparent;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-premium:hover { background: var(--accent-gold); color: #000; }
+
+/* RESPONSIVE ADJUSTMENTS - MENU MÓVIL OPTIMIZADO */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: transparent !important; /* Fondo transparente */
+        padding: 10px 0; /* Despliegue reducido */
+        margin-top: 0;
+    }
+    /* Asegurar que el menú sea visible en móviles incluso sin scroll */
+    .navbar-collapse.show {
+        background: rgba(15, 15, 15, 0.10) !important;
+        border-radius: 0 0 15px 15px;
+        padding: 20px;
+    }
+    .nav-item {
+        margin: 8px 0; /* Espaciado reducido */
+    }
+    .nav-link.btn-premium {
+        display: inline-block;
+        margin-top: 5px;
+        padding: 10px 20px;
+        width: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .display-4 { font-size: 1.8rem; }
+    .section-padding { padding: 60px 0; }
+    .hero-carousel .carousel-item { height: 100vh; padding-top: 70px; }
+    .staff-img-container { height: 350px; }
+    .whatsapp-float { width: 55px; height: 55px; font-size: 28px; bottom: 20px; right: 20px; }
+}
